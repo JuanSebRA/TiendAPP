@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "279420694866",
+    "project_id": "bdtiendapp",
+    "storage_bucket": "bdtiendapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279420694866:android:9ed252e2ec5164b85aca8b",
+        "android_client_info": {
+          "package_name": "com.app.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279420694866-j2uiuuguuga1oaibpvc7n5dugi9omba1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDii256DpTnyQXNaVBw5CQkNb2b-zfiiag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279420694866-j2uiuuguuga1oaibpvc7n5dugi9omba1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279420694866:android:4053e5e42487d1b35aca8b",
+        "android_client_info": {
+          "package_name": "com.app.tiendapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279420694866-j2uiuuguuga1oaibpvc7n5dugi9omba1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDii256DpTnyQXNaVBw5CQkNb2b-zfiiag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279420694866-j2uiuuguuga1oaibpvc7n5dugi9omba1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
