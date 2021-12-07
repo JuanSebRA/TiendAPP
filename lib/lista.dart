@@ -11,8 +11,12 @@ class  lista extends StatelessWidget{
         primarySwatch: Colors.red,
       ),
       home: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text("Mi lista de productos"),
+          title: Center(child: Text("lista de productos y servicios")),titleTextStyle: TextStyle(fontSize:20,
+          color: Colors.black,fontFamily: 'letra',
+          fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+        ),
         ),
         body: (
             Productoslista()
@@ -47,18 +51,22 @@ class _ProductoslistaState extends State<Productoslista> {
               children: snapshot.data!.docs.map((DocumentSnapshot document){
                 Map<String,dynamic> data=document.data()! as Map<String,dynamic>;
                 return Container(
-                  color: Colors.white,
+                  color: Colors.black,
                   margin: EdgeInsets.only(top:10),
                   child: ListTile(
-                    leading: Icon(
-                      Icons.add_to_home_screen,
-                      color: Colors.black,
-                      size: 30,
+                    leading: IconButton(
+                      tooltip: 'Mas Informacion',
+                      icon: const Icon(Icons.add,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      onPressed: () {
 
+                      },
                     ),
-                    title: Text(data['categoria']),
-                    subtitle: Text(data['codigo_almacen']),
-                    trailing: Text(data['precio']),
+                    title: Image.network(data['imagen'],width: 100,height: 100,),
+                    subtitle: Center(child: Text(data['nombre'],style: TextStyle(fontSize: 15,color: Colors.red),)),
+                    trailing: Text(data['precio'],style: TextStyle(fontSize: 15,color: Colors.red),),
                   ),
                 );
 

@@ -27,3 +27,33 @@ class _notificacionesState extends State<notificaciones> {
     );
   }
 }
+
+class home extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("mensaje"),
+      ),
+      body: Center(
+        child: Text("new mensaje"),
+      ),
+    );
+  }
+}
+
+class mensaje extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("mensaje"),
+      ),
+      body: Center(
+        child: Text("principal"),
+      ),
+    );
+  }
+}

@@ -1,12 +1,13 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'buscar.dart';
 import 'clientes.dart';
 import 'compra.dart';
 import 'favorito.dart';
 import 'lista.dart';
+import 'main.dart';
 import 'menu.dart';
-import 'notificaciones.dart';
 
 class TiendApp extends StatelessWidget {
   bool _showFab = true;
@@ -23,16 +24,18 @@ class TiendApp extends StatelessWidget {
       ),
       home: Container(
         decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
             image: DecorationImage(
                 image: AssetImage('BlackFolder/14.jpg'),
-                fit: BoxFit.cover
+                fit: BoxFit.cover,
             )
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            title: Center(child: const Text('TiendApp',
+            title: Center(
+              child: const Text('TiendApp',
               style: TextStyle(fontSize:30,
                 color: Colors.black,fontFamily: 'letra',
                 fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,
@@ -40,14 +43,17 @@ class TiendApp extends StatelessWidget {
                 //decorationColor: Colors.white,
                 //decorationStyle: TextDecorationStyle.dashed
               ),
-            )
+            ),
             ),
           ),
           body: ListView(
             padding: const EdgeInsets.only(bottom: 80),
             children: <Widget>[
               Container(
-                color: Colors.blue.withOpacity(0.5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.blue.withOpacity(0.5),
+                ),
                 margin: EdgeInsets.only(top: 10),
                 padding: EdgeInsets.all(20),
                 child: ListTile(
@@ -69,26 +75,29 @@ class TiendApp extends StatelessWidget {
                 ),
               ),
               Container(
-                color: Colors.green.withOpacity(0.5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.green.withOpacity(0.5),
+                ),
                 margin: EdgeInsets.only(top: 50),
                 padding: EdgeInsets.all(20),
                 child: ListTile(
                   title: const Text(
-                    'Lista de marcas y productos',
+                    'Lista de negocios y productos',
                     style: TextStyle(fontSize:20,
                       color: Colors.black,fontFamily: 'letra',
                       fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
                     ),
                   ),
                   subtitle: Text('Encuentra variedad en productos y servicios',
-                    style: TextStyle(fontSize: 15,color: Colors.blueAccent),
+                    style: TextStyle(fontSize: 15,color: Colors.red),
                   ),
                   leading: IconButton(
                     icon: Icon(
                       Icons.add_shopping_cart_sharp,
                     ),
                     iconSize: 50,
-                    color: Colors.blueAccent,
+                    color: Colors.red,
                     splashColor: Colors.purple,
                     onPressed: () {
                       Navigator.push(
@@ -100,7 +109,10 @@ class TiendApp extends StatelessWidget {
                 ),
               ),
               Container(
-                color: Colors.deepPurple.withOpacity(0.5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.deepPurple.withOpacity(0.5),
+                ),
                 margin: EdgeInsets.only(top: 10),
                 padding: EdgeInsets.all(20),
                 child: ListTile(
@@ -131,23 +143,26 @@ class TiendApp extends StatelessWidget {
                 ),
               ),
               Container(
-                color: Colors.redAccent.withOpacity(0.5),
-                margin: EdgeInsets.only(top: 45),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.redAccent.withOpacity(0.5),
+                ),
+                margin: EdgeInsets.only(top: 50),
                 padding: EdgeInsets.all(20),
                 child: ListTile(
                   title: const Text(
-                    'Registrese Aqui',
+                    'Registrate Aqui Abajo',
                     style: TextStyle(fontSize:20,
                       color: Colors.black,fontFamily: 'letra',
                       fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
                     ),
                   ),
                   subtitle: Text('Registrate y obten multiples beneficios',
-                    style: TextStyle(fontSize: 15,color: Colors.grey),
+                    style: TextStyle(fontSize: 15,color: Colors.white),
                   ),
                   leading: Icon(
                     Icons.add_reaction_rounded,
-                    color: Colors.black54,
+                    color: Colors.yellow,
                     size: 50,
                   ),
                 ),
@@ -216,14 +231,14 @@ class _TiendApp extends StatelessWidget {
             ),
             IconButton(
               tooltip: 'Notificaciones',
-              icon: const Icon(Icons.attach_email,
+              icon: const Icon(Icons.email,
                 color: Colors.blue,
                 size: 30,
               ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context)=>notificaciones()),
+                  MaterialPageRoute(builder: (context)=>noty()),
                 );
               },
             ),

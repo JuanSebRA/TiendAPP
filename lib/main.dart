@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'notificaciones.dart';
+import 'notificacion.dart';
 import 'principal.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await push.initializeApp();
+  push.messageString.listen((message){
+  });
   await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+
 
   // This widget is the root of your application.
   @override
@@ -40,7 +45,10 @@ class _pantallaState extends State<pantalla> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Center(child: Text("My App")),
+        title: Center(child: Text("Bienvenido")),titleTextStyle: TextStyle(fontSize:30,
+        color: Colors.black,fontFamily: 'letra',
+        fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+      ),
       ),
       body: ListView(
         children: [
@@ -102,7 +110,7 @@ class _pantallaState extends State<pantalla> {
                 style: TextButton.styleFrom(
                   primary: Colors.red,
                 ),
-                child: Text("Ingresar",
+                child: Text("Cargar Usuario",
                   style: TextStyle(
                     fontSize: 25,
                     color: Colors.black,
@@ -123,15 +131,17 @@ class _pantallaState extends State<pantalla> {
               )
           ),
           Container(
-            color: Colors.red.withOpacity(0.5),
+            color: Colors.black,
             margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(1),
             child: ListTile(
-              title: const Text(
-                'Ingresar sin cuenta',
-                style: TextStyle(fontSize:20,
-                  color: Colors.black,fontFamily: 'letra',
-                  fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+              title: Center(
+                child: const Text(
+                  'Ingresa sin cuenta Aqui',
+                  style: TextStyle(fontSize:20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+                  ),
                 ),
               ),
             ),
@@ -159,6 +169,26 @@ class _pantallaState extends State<pantalla> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class noty extends StatefulWidget {
+
+  @override
+  _notyState createState() => _notyState();
+}
+
+class _notyState extends State<noty> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: ("notiapp"),
+      initialRoute: 'home',
+      routes: {
+        'home':(_)=>home(),
+        'message':(_)=>mensaje(),
+      },
     );
   }
 }

@@ -62,7 +62,7 @@ class _registroState extends State<registro> {
                   hintText: "Nombre Completo",
                   hintStyle: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.normal,
                   ),
@@ -77,7 +77,7 @@ class _registroState extends State<registro> {
                 keyboardType: TextInputType.text,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
                 ),
@@ -85,7 +85,7 @@ class _registroState extends State<registro> {
                   hintText: "Direccion",
                   hintStyle: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.normal,
                   ),
@@ -100,15 +100,15 @@ class _registroState extends State<registro> {
                 keyboardType: TextInputType.number,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
                 ),
                 decoration: InputDecoration(
-                  hintText: "Telefono-Celular",
+                  hintText: "Celular",
                   hintStyle: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.normal,
                   ),
@@ -123,7 +123,7 @@ class _registroState extends State<registro> {
                 keyboardType: TextInputType.emailAddress,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
                 ),
@@ -131,7 +131,7 @@ class _registroState extends State<registro> {
                   hintText: "Correo Electronico",
                   hintStyle: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.normal,
                   ),
@@ -146,7 +146,7 @@ class _registroState extends State<registro> {
                 keyboardType: TextInputType.text,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
                 ),
@@ -154,7 +154,7 @@ class _registroState extends State<registro> {
                   hintText: "Usuario",
                   hintStyle: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.normal,
                   ),
@@ -169,15 +169,15 @@ class _registroState extends State<registro> {
                 keyboardType: TextInputType.visiblePassword,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
                 ),
                 decoration: InputDecoration(
-                  hintText: "Escriba Contraseña",
+                  hintText: "Contraseña",
                   hintStyle: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.normal,
                   ),

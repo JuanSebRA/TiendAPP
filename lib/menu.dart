@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class menu extends StatefulWidget {
@@ -7,46 +8,113 @@ class menu extends StatefulWidget {
 }
 
 class _menuState extends State<menu> {
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      darkTheme: ThemeData(
-        primarySwatch: Colors.red,
+    //CupertinoColors.darkBackgroundGray;
+    return Drawer(
+      child: ListView(
+        children: [
+          UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+              //color: Color.fromARGB(30, 255, 0, 0)
+                gradient: LinearGradient(colors: [Colors.red, Colors.black], begin: Alignment.topCenter, end: Alignment.bottomCenter)
+            ),
+            accountName: Text("Usuario",style: TextStyle(fontSize:20,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+            ),),
+            accountEmail: Text("Email",style: TextStyle(fontSize:20,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+            ),),
+            currentAccountPicture: Image.asset("BlackFolder/12.jpg"),
+          ),
+          ListTile(
+              tileColor: Colors.black,
+              title: Text('Configuracion',style: TextStyle(fontSize:20,
+                color: Colors.red,fontFamily: 'letra',
+                fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+              ),),
+              leading: Icon(Icons.brightness_7_outlined,
+                  color: Colors.white,
+                  size: 50),
+              onTap: (){
+                Navigator.pop(context);
+              }
+          ),
+          /*ListTile(
+              tileColor: Colors.black,
+              title: Text('clientes',style: TextStyle(fontSize:20,
+                color: Colors.red,fontFamily: 'letra',
+                fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+              ),),
+              leading: Image.asset("BlackFolder/13.jpg"),
+              onTap: (){
+                Navigator.pop(context);
+              }
+          ),*/
+        ],
       ),
-        home:Scaffold(
-          backgroundColor: Colors.black,
-          appBar: AppBar(
-            title: Text("Menu"),
-          ),
-          drawer: Drawer(
-              child: ListView(
-                children: [
-                  Container(
-                    color: Colors.red,
-                    margin: EdgeInsets.only(top: 20),
-                    padding: EdgeInsets.all(30),
-                    child: ListTile(
-                      title: const Text(
-                        'Configuracion',
-                        style: TextStyle(fontSize:20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
-                        ),
-                      ),
-                      leading: Icon(
-                        Icons.brightness_7_outlined,
-                        color: Colors.white,
-                        size: 50,
-                      ),
-                      onTap: (){
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ),
-                ],
-              )
-          ),
-        ),
     );
   }
 }
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Popup Menu Example - FlutterCorner'),
+        backgroundColor: Colors.black,
+      ),
+      body: Center(
+        child: RaisedButton(
+          child: Text(
+            'Show Pop-up',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          color: Colors.black,
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) => _buildPopupDialog(context),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+Widget _buildPopupDialog(BuildContext context) {
+  return new AlertDialog(
+    title: const Text('Popup example'),
+    content: new Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text("Hello"),
+      ],
+    ),
+    actions: <Widget>[
+      new FlatButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        textColor: Theme.of(context).primaryColor,
+        child: const Text('Close'),
+      ),
+    ],
+  );
+}
+
+/*Icons.brightness_7_outlined,
+color: Colors.white,
+size: 50,
+),
+onTap: (){
+Navigator.pop(context);
+},*/
