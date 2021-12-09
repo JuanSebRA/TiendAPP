@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tiendapp/productos.dart';
 
 class  lista extends StatelessWidget{
 
@@ -56,12 +58,23 @@ class _ProductoslistaState extends State<Productoslista> {
                   child: ListTile(
                     leading: IconButton(
                       tooltip: 'Mas Informacion',
-                      icon: const Icon(Icons.add,
+                      icon: const Icon(Icons.arrow_drop_down,
                         color: Colors.white,
                         size: 30,
                       ),
                       onPressed: () {
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context)=>productos()),
+                        );
+                        /*Firestore.instance.collection("productos").getDocuments().then((querySnapshot){
+                          querySnapshot.documents.forEach((element){
+                            List value = element.data["producto"];
+                            Firestore.instance.collection("items").document(value[0]).get().then((value){
+                              print(value.data);
+                            });
+                          });
+                        });*/
                       },
                     ),
                     title: Image.network(data['imagen'],width: 100,height: 100,),

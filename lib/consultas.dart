@@ -1,21 +1,20 @@
-
 import "package:flutter/material.dart";
 //import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'buscar.dart';
+import 'buscas.dart';
 
-class consulta extends StatefulWidget {
+class consultas extends StatefulWidget {
   //final dat;
-  final cliente cli;
+  final clientes clie;
 
   //const consulta(this.dat,{Key? key}) : super(key: key);
-  consulta({required this.cli});
+  consultas({required this.clie});
 
   @override
-  _consultaState createState() => _consultaState();
+  _consultasState createState() => _consultasState();
 }
 
-class _consultaState extends State<consulta> {
+class _consultasState extends State<consultas> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,9 +43,12 @@ class _consultaState extends State<consulta> {
                   child: Column(
                     children: [
                       //Image.network(widget.dat,width: 300,),
-                      Image.network(widget.cli.img,width: 300,),
-                      Text(widget.cli.nom,style: TextStyle(fontSize: 50,color: Colors.white),),
-                      Text(widget.cli.pre,style: TextStyle(fontSize: 50,color: Colors.white),),
+                      Image.network(widget.clie.img,width: 300,),
+                      Text(widget.clie.nom,style: TextStyle(fontSize: 30,color: Colors.white),),
+                      Text(widget.clie.act,style: TextStyle(fontSize: 30,color: Colors.white),),
+                      Text(widget.clie.cel,style: TextStyle(fontSize: 30,color: Colors.white),),
+                      Text(widget.clie.tel,style: TextStyle(fontSize: 30,color: Colors.white),),
+                      Text(widget.clie.dir,style: TextStyle(fontSize: 30,color: Colors.white),),
 
                       Container(
                         padding: EdgeInsets.only(top: 50),
@@ -58,8 +60,8 @@ class _consultaState extends State<consulta> {
                             size: 50,color: Colors.white,
                           ),
                           onPressed: () async{
-                            if(await canLaunch(widget.cli.web)){
-                              await launch(widget.cli.web);
+                            if(await canLaunch(widget.clie.web)){
+                              await launch(widget.clie.web);
                             }
 
                           },

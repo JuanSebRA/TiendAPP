@@ -1,6 +1,7 @@
 
 import "package:flutter/material.dart";
 import "package:cloud_firestore/cloud_firestore.dart";
+import 'buscas.dart';
 import 'consulta.dart';
 
 class buscar extends StatefulWidget {
@@ -18,8 +19,15 @@ class _buscarState extends State<buscar> {
         primarySwatch: Colors.red,
       ),
       home: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text("Informacion"),
+          title: Center(
+            child: Text("Busca tu Producto",style: TextStyle(fontSize:30,
+              color: Colors.black,fontFamily: 'letra',
+              fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+            ),
+            ),
+          ),
         ),
         body: Center(
           child: SizedBox(width: 360,
@@ -28,13 +36,27 @@ class _buscarState extends State<buscar> {
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                    controller: buscar,
+                    controller: buscar,style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.normal,
+                  ),
                     onChanged: (value){
                       setState(() {
                       });
                     },
                     decoration: InputDecoration(
-                        hintText: "Digite informacion a buscar"
+                        hintText: "Digite informacion a buscar",hintStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.normal,
+                    ),
+                      icon: const Icon(Icons.search,
+                        color: Colors.white,
+                        size: 30,
+                      ),
                     ),
                   ),
                 ),
@@ -97,6 +119,97 @@ class dato extends StatelessWidget {
         );
       },
 
+    );
+  }
+}
+
+class categoria extends StatelessWidget {
+  const categoria({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Proyecto Tienda',
+        darkTheme: ThemeData(
+        primarySwatch: Colors.red,
+    ),
+    home: Container(
+      child: Scaffold(
+          backgroundColor: Colors.black,
+          appBar: AppBar(
+            title: Center(
+              child: const Text('Elige la Categoria',
+                style: TextStyle(fontSize:30,
+                  color: Colors.black,fontFamily: 'letra',
+                  fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.white,
+                  decorationStyle: TextDecorationStyle.wavy
+                ),
+              ),
+            ),
+          ),
+          body: ListView(
+              padding: const EdgeInsets.only(top: 50),
+              children: <Widget>[
+          Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(100)),
+      color: Colors.red,
+    ),
+      margin: EdgeInsets.only(top: 30),
+      padding: EdgeInsets.all(20),
+      child: TextButton.icon(
+          label: Center(
+            child: Text("productos",
+              style: TextStyle(fontSize:30,
+              color: Colors.white,fontFamily: 'letra',
+              fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+            ),),
+          ),
+          icon: const Icon(Icons.add,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context)=>buscar()),
+            );
+          },
+        ),
+      ),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(100)),
+                    color: Colors.red,
+                  ),
+                  margin: EdgeInsets.only(top: 100),
+                  padding: EdgeInsets.all(20),
+                  child: TextButton.icon(
+                    label: Center(
+                      child: Text("Servicios",
+                        style: TextStyle(fontSize:30,
+                          color: Colors.white,fontFamily: 'letra',
+                          fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+                        ),),
+                    ),
+                    icon: const Icon(Icons.add,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context)=>buscas()),
+                      );
+                    },
+                  ),
+                ),
+    ],
+          ),
+    ),
+    ),
     );
   }
 }

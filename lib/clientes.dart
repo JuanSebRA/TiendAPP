@@ -28,8 +28,9 @@ class _registroState extends State<registro> {
   final nom=TextEditingController();
   final cel=TextEditingController();
   final dir=TextEditingController();
-  final tel=TextEditingController();
   final user=TextEditingController();
+  final cor=TextEditingController();
+  final id=TextEditingController();
 
   CollectionReference datcli=FirebaseFirestore.instance.collection('clientes');
 
@@ -38,7 +39,7 @@ class _registroState extends State<registro> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Center(child: Text("Nuestros Clientes")),
+        title: Center(child: Text("Registro Clientes",style: TextStyle(fontSize: 30,color: Colors.black),)),
       ),
       body: ListView(
         children: [
@@ -51,10 +52,35 @@ class _registroState extends State<registro> {
               margin: EdgeInsets.all(20),
               padding: EdgeInsets.only(left: 60,right: 60),
               child: TextField(
+                controller: id,
                 keyboardType: TextInputType.text,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.normal,
+                ),
+                decoration: InputDecoration(
+                  hintText: "ID",
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.normal,
+                  ),
+                ),
+              )
+          ),
+          Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(20),
+              padding: EdgeInsets.only(left: 60,right: 60),
+              child: TextField(
+                controller: nom,
+                keyboardType: TextInputType.text,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
                 ),
@@ -74,6 +100,7 @@ class _registroState extends State<registro> {
               padding: EdgeInsets.only(left: 60,right: 60),
               margin: EdgeInsets.all(20),
               child: TextField(
+                controller: dir,
                 keyboardType: TextInputType.text,
                 style: TextStyle(
                   color: Colors.white,
@@ -97,6 +124,7 @@ class _registroState extends State<registro> {
               padding: EdgeInsets.only(left: 60,right: 60),
               margin: EdgeInsets.all(20),
               child: TextField(
+                controller: cel,
                 keyboardType: TextInputType.number,
                 style: TextStyle(
                   color: Colors.white,
@@ -120,6 +148,7 @@ class _registroState extends State<registro> {
               padding: EdgeInsets.only(left: 60,right: 60),
               margin: EdgeInsets.all(20),
               child: TextField(
+                controller: cor,
                 keyboardType: TextInputType.emailAddress,
                 style: TextStyle(
                   color: Colors.white,
@@ -143,6 +172,7 @@ class _registroState extends State<registro> {
               padding: EdgeInsets.only(left: 60,right: 60),
               margin: EdgeInsets.all(20),
               child: TextField(
+                controller: user,
                 keyboardType: TextInputType.text,
                 style: TextStyle(
                   color: Colors.white,
@@ -166,6 +196,7 @@ class _registroState extends State<registro> {
               padding: EdgeInsets.only(left: 60,right: 60),
               margin: EdgeInsets.all(20),
               child: TextField(
+                controller: pass,
                 keyboardType: TextInputType.visiblePassword,
                 style: TextStyle(
                   color: Colors.white,
@@ -182,6 +213,7 @@ class _registroState extends State<registro> {
                     fontStyle: FontStyle.normal,
                   ),
                 ),
+                obscureText: true,
               )
           ),
           Container(
@@ -199,22 +231,24 @@ class _registroState extends State<registro> {
                 ),
 
                 onPressed: () {
-                  if(pass.text.isEmpty||nom.text.isEmpty||cel.text.isEmpty||dir.text.isEmpty||tel.text.isEmpty||user.text.isEmpty){
+                  if(id.text.isEmpty||pass.text.isEmpty||nom.text.isEmpty||cel.text.isEmpty||dir.text.isEmpty||user.text.isEmpty||cor.text.isEmpty){
                     Fluttertoast.showToast(msg: "llene todos los campos",
                         toastLength: Toast.LENGTH_LONG,
                         gravity: ToastGravity.CENTER
                     );
                   }
                   else{
-                    datcli.doc(pass.text).set({
+                    datcli.doc(id.text).set({
                       "nombre":nom.text,
                       "celular":cel.text,
                       "direccion":dir.text,
-                      "telefono":tel.text,
                       "user":user.text,
+                      "correo":cor.text,
+                      "ID":id.text,
+                      "contraseña":pass.text,
                     });
 
-                    Fluttertoast.showToast(msg: "Datos",
+                    Fluttertoast.showToast(msg: "Datos Registrados",
                         fontSize: 20,
                         backgroundColor: Colors.grey,
                         textColor: Colors.red,
@@ -239,18 +273,21 @@ class _registroState extends State<registro> {
                 ),
               ),
               onPressed: (){
-                datcli.doc(pass.text).update({
+                datcli.doc(id.text).update({
                   "nombre":nom.text,
                   "celular":cel.text,
                   "direccion":dir.text,
-                  "telefono":tel.text,
                   "user":user.text,
+                  "correo":cor.text,
+                  "ID":id.text,
+                  "contraseña":pass.text,
+
                 });
 
                 Fluttertoast.showToast(msg: "Datos actualizados",
                     fontSize: 20,
                     backgroundColor: Colors.grey,
-                    textColor: Colors.red,
+                    textColor: Colors.white,
                     toastLength: Toast.LENGTH_LONG,
                     gravity: ToastGravity.BOTTOM
                 );
@@ -271,12 +308,12 @@ class _registroState extends State<registro> {
                 ),
               ),
               onPressed: (){
-                datcli.doc(pass.text).delete();
+                datcli.doc(id.text).delete();
 
                 Fluttertoast.showToast(msg: "Datos eliminados",
                     fontSize: 20,
                     backgroundColor: Colors.grey,
-                    textColor: Colors.red,
+                    textColor: Colors.white,
                     toastLength: Toast.LENGTH_LONG,
                     gravity: ToastGravity.BOTTOM
                 );

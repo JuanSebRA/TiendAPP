@@ -252,7 +252,7 @@ class _TiendApp extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context)=>buscar()),
+                  MaterialPageRoute(builder: (context)=>categoria()),
                 );
               },
             ),
