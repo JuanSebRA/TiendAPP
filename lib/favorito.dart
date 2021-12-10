@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -11,8 +12,9 @@ class  favorito extends StatelessWidget{
         primarySwatch: Colors.red,
       ),
       home: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text("Mi lista de compras anteriores"),
+          title: Text("Lista de compras anteriores"),
         ),
         body: (
             Productoslista()
@@ -47,17 +49,22 @@ class _ProductoslistaState extends State<Productoslista> {
               children: snapshot.data!.docs.map((DocumentSnapshot document){
                 Map<String,dynamic> data=document.data()! as Map<String,dynamic>;
                 return Container(
-                  color: Colors.white,
+                  color: Colors.blueGrey,
                   margin: EdgeInsets.only(top:10),
                   child: ListTile(
                     leading: Icon(
                       Icons.favorite,
                       color: Colors.red,
                       size: 30,
-
                     ),
-                    title: Text(data['producto']),
-                    subtitle: Text(data['valor']),
+                    title: Text(data['producto'],style: TextStyle(fontSize:20,
+                      color: Colors.white,fontFamily: 'letra',
+                      fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+                    ),),
+                    trailing: Text(data['valor'],style: TextStyle(fontSize:20,
+                      color: Colors.white,fontFamily: 'letra',
+                      fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+                    ),),
                   ),
                 );
 
@@ -68,3 +75,4 @@ class _ProductoslistaState extends State<Productoslista> {
     );
   }
 }
+

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tiendapp/productos.dart';
 
+
 class  lista extends StatelessWidget{
 
   @override
@@ -63,9 +64,11 @@ class _ProductoslistaState extends State<Productoslista> {
                         size: 30,
                       ),
                       onPressed: () {
+                        client clie=client(data['nombre'], data['precio'], data['imagen'], data['categoria'], data['web']);
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context)=>productos()),
+                          MaterialPageRoute(builder: (context)=> productos(clie:clie)
+                          ),
                         );
                         /*Firestore.instance.collection("productos").getDocuments().then((querySnapshot){
                           querySnapshot.documents.forEach((element){
@@ -89,4 +92,15 @@ class _ProductoslistaState extends State<Productoslista> {
         }
     );
   }
+}
+
+class client{
+  String nom="";
+  String pre="";
+  String img="";
+  String cat="";
+  String web="";
+
+  client(this.nom, this.pre, this.img, this.cat, this.web);
+
 }

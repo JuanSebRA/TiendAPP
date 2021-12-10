@@ -143,7 +143,7 @@ class categoria extends StatelessWidget {
                   color: Colors.black,fontFamily: 'letra',
                   fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,
                   decoration: TextDecoration.underline,
-                  decorationColor: Colors.white,
+                  decorationColor: Colors.black,
                   decorationStyle: TextDecorationStyle.wavy
                 ),
               ),

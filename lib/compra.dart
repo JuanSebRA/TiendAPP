@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/rendering.dart';
 import 'carrito.dart';
 
 class compra extends StatefulWidget {
@@ -11,7 +12,9 @@ class compra extends StatefulWidget {
 }
 
 class _compraState extends State<compra> {
+
   TextEditingController buscar=TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,8 +22,12 @@ class _compraState extends State<compra> {
         primarySwatch: Colors.red,
       ),
       home: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text("compras"),
+          title: Center(child: Text("Registra tus Compras")),titleTextStyle: TextStyle(fontSize:25,
+          color: Colors.black,fontFamily: 'letra',
+          fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+        ),
         ),
         body: Center(
           child: SizedBox(
@@ -30,15 +37,29 @@ class _compraState extends State<compra> {
                 Container(
                   padding: EdgeInsets.only(top: 10),
                   child: TextField(
-                    controller: buscar,
+                      controller: buscar,style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.normal,
+                    ),
                     onChanged: (value){
                       setState(() {
-
                       }
                       );
                     },
                     decoration: InputDecoration(
-                        hintText: "nombre negocio"
+                      hintText: "Buscar (moda,alimento)",
+                      hintStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.normal,
+                    ),
+                      icon: const Icon(Icons.search,
+                        color: Colors.white,
+                        size: 30,
+                      ),
                     ),
                   ),
                 ),
@@ -61,7 +82,8 @@ class negocio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Stream<QuerySnapshot> consultar=FirebaseFirestore.instance.collection('productos').where('codigo_almacen',isEqualTo: dato.toLowerCase()).snapshots();
+
+    final Stream<QuerySnapshot> consultar=FirebaseFirestore.instance.collection('productos').where('categoria',isEqualTo: dato.toLowerCase()).snapshots();
 
     return Column(
       children: [
@@ -84,17 +106,16 @@ class negocio extends StatelessWidget {
                             children: [
                               Container(
                                 margin: EdgeInsets.only(top:10),
-                                height:100,
-                                color: Colors.red,
+                                color: Colors.black,
                                 child:ListTile(
-                                  title: Text(data['nombre']),
-                                  subtitle: Text(data['precio']),
+                                  title: Text(data['nombre'],style: TextStyle(fontSize: 20,color: Colors.white),),
+                                  trailing: Text(data['precio'],style: TextStyle(fontSize: 20,color: Colors.white),
+                                  ),
                                   onTap: (){
                                     lista.add([data['nombre'],data['precio']]);
-                                    //lista.add(data['precio']);
                                   },
                                 ),
-                              )
+                              ),
                             ]
                         );
                       }
@@ -109,18 +130,17 @@ class negocio extends StatelessWidget {
           child: Container(
             margin: EdgeInsets.only(bottom: 10),
             padding: EdgeInsets.all(20),
-            height: 100,
-            color: Colors.red,
+            color: Colors.black,
             child: ElevatedButton.icon(
-              label: Text("ver compra",
+              label: Text("ver compra",style: TextStyle(fontSize: 20,color: Colors.white),
                 textAlign: TextAlign.center,
               ),
-              icon: Icon(Icons.eleven_mp_rounded,
+              icon: Icon(Icons.add_shopping_cart_sharp,
                 size: 30,
-                color: Colors.black,
+                color: Colors.white,
               ),
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> carro(lista:lista)));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> list(lista:lista)));
               },
             ),
           ),

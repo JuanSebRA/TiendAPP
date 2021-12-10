@@ -57,20 +57,19 @@ class TiendApp extends StatelessWidget {
                 margin: EdgeInsets.only(top: 10),
                 padding: EdgeInsets.all(20),
                 child: ListTile(
-                  title: const Text(
-                    'Bienvenido a nuestra App',
-                    style: TextStyle(fontSize:20,
-                      color: Colors.black,fontFamily: 'letra',
-                      fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+                  title: Center(
+                    child: const Text(
+                      'Bienvenido a nuestra App',
+                      style: TextStyle(fontSize:20,
+                        color: Colors.white,fontFamily: 'letra',
+                        fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+                      ),
                     ),
                   ),
-                  subtitle: Text('Encuentra los mejores precios y descuentos',
-                    style: TextStyle(fontSize: 15,color: Colors.red),
-                  ),
-                  leading: Icon(
-                    Icons.add_business,
-                    color: Colors.red,
-                    size: 50,
+                  subtitle: Center(
+                    child: Text('Los mejores precios y descuentos',
+                      style: TextStyle(fontSize: 15,color: Colors.white),
+                    ),
                   ),
                 ),
               ),
@@ -85,12 +84,12 @@ class TiendApp extends StatelessWidget {
                   title: const Text(
                     'Lista de negocios y productos',
                     style: TextStyle(fontSize:20,
-                      color: Colors.black,fontFamily: 'letra',
+                      color: Colors.white,fontFamily: 'letra',
                       fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
                     ),
                   ),
                   subtitle: Text('Encuentra variedad en productos y servicios',
-                    style: TextStyle(fontSize: 15,color: Colors.red),
+                    style: TextStyle(fontSize: 15,color: Colors.white),
                   ),
                   leading: IconButton(
                     icon: Icon(
@@ -117,14 +116,14 @@ class TiendApp extends StatelessWidget {
                 padding: EdgeInsets.all(20),
                 child: ListTile(
                   title: const Text(
-                    'Elige los productos y servicios',
+                    'Realiza tus Compras Aqui',
                     style: TextStyle(fontSize:20,
-                      color: Colors.black,fontFamily: 'letra',
+                      color: Colors.white,fontFamily: 'letra',
                       fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
                     ),
                   ),
-                  subtitle: Text('Conoce los detalles y opciones disponibles',
-                    style: TextStyle(fontSize: 15,color: Colors.pink),
+                  subtitle: Text('Busca los productos disponibles',
+                    style: TextStyle(fontSize: 15,color: Colors.white),
                   ),
                   leading: IconButton(
                     icon: Icon(
@@ -150,20 +149,21 @@ class TiendApp extends StatelessWidget {
                 margin: EdgeInsets.only(top: 50),
                 padding: EdgeInsets.all(20),
                 child: ListTile(
-                  title: const Text(
-                    'Registrate Aqui Abajo',
-                    style: TextStyle(fontSize:20,
-                      color: Colors.black,fontFamily: 'letra',
-                      fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+                  title: Center(
+                    child: Center(
+                      child: const Text(
+                        'Registrate Abajo',
+                        style: TextStyle(fontSize:20,
+                          color: Colors.white,fontFamily: 'letra',
+                          fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+                        ),
+                      ),
                     ),
                   ),
-                  subtitle: Text('Registrate y obten multiples beneficios',
-                    style: TextStyle(fontSize: 15,color: Colors.white),
-                  ),
-                  leading: Icon(
-                    Icons.add_reaction_rounded,
-                    color: Colors.yellow,
-                    size: 50,
+                  subtitle: Center(
+                    child: Text('Obten multiples beneficios',
+                      style: TextStyle(fontSize: 15,color: Colors.white),
+                    ),
                   ),
                 ),
               ),
@@ -177,7 +177,9 @@ class TiendApp extends StatelessWidget {
                 MaterialPageRoute(builder: (context)=>Clientes()),
               );
             },
-            child: const Icon(Icons.add),
+            child: const Icon(Icons.add_reaction_rounded,size: 50,color: Colors.yellow,
+            ),
+            splashColor: Colors.black,
             tooltip: 'Agregar Usuario',
           )
               : null,
@@ -246,7 +248,7 @@ class _TiendApp extends StatelessWidget {
             IconButton(
               tooltip: 'Buscar',
               icon: const Icon(Icons.search,
-                color: Colors.yellow,
+                color: Colors.green,
                 size: 30,
               ),
               onPressed: () {

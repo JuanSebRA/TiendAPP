@@ -13,6 +13,7 @@ class _menuState extends State<menu> {
   Widget build(BuildContext context) {
     //CupertinoColors.darkBackgroundGray;
     return Drawer(
+      backgroundColor: Colors.grey,
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
@@ -20,11 +21,11 @@ class _menuState extends State<menu> {
               //color: Color.fromARGB(30, 255, 0, 0)
                 gradient: LinearGradient(colors: [Colors.red, Colors.black], begin: Alignment.topCenter, end: Alignment.bottomCenter)
             ),
-            accountName: Text("Usuario",style: TextStyle(fontSize:20,
+            accountName: Text("Admin",style: TextStyle(fontSize:20,
               color: Colors.red,
               fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
             ),),
-            accountEmail: Text("Email",style: TextStyle(fontSize:20,
+            accountEmail: Text("123@gmail.com",style: TextStyle(fontSize:20,
               color: Colors.red,
               fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
             ),),
@@ -37,6 +38,84 @@ class _menuState extends State<menu> {
                 fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
               ),),
               leading: Icon(Icons.brightness_7_outlined,
+                  color: Colors.white,
+                  size: 50),
+              onTap: (){
+                Navigator.pop(context);
+              }
+          ),
+          ListTile(
+              tileColor: Colors.black,
+              title: Text('Informacion Usuario',style: TextStyle(fontSize:20,
+                color: Colors.red,fontFamily: 'letra',
+                fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+              ),),
+              leading: Icon(Icons.people,
+                  color: Colors.white,
+                  size: 50),
+              onTap: (){
+                Navigator.pop(context);
+              }
+          ),
+          ListTile(
+              tileColor: Colors.black,
+              title: Text('Geolocalizacion',style: TextStyle(fontSize:20,
+                color: Colors.red,fontFamily: 'letra',
+                fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+              ),),
+              leading: Icon(Icons.add_business,
+                  color: Colors.white,
+                  size: 50),
+              onTap: (){
+                Navigator.pop(context);
+              }
+          ),
+          ListTile(
+              tileColor: Colors.black,
+              title: Text('Pedidos',style: TextStyle(fontSize:20,
+                color: Colors.red,fontFamily: 'letra',
+                fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+              ),),
+              leading: Icon(Icons.money,
+                  color: Colors.white,
+                  size: 50),
+              onTap: (){
+                Navigator.pop(context);
+              }
+          ),
+          ListTile(
+              tileColor: Colors.black,
+              title: Text('Cuenta',style: TextStyle(fontSize:20,
+                color: Colors.red,fontFamily: 'letra',
+                fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+              ),),
+              leading: Icon(Icons.account_box,
+                  color: Colors.white,
+                  size: 50),
+              onTap: (){
+                Navigator.pop(context);
+              }
+          ),
+          ListTile(
+              tileColor: Colors.black,
+              title: Text('Informacion Negocio',style: TextStyle(fontSize:20,
+                color: Colors.red,fontFamily: 'letra',
+                fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+              ),),
+              leading: Icon(Icons.house,
+                  color: Colors.white,
+                  size: 50),
+              onTap: (){
+                Navigator.pop(context);
+              }
+          ),
+          ListTile(
+              tileColor: Colors.black,
+              title: Text('Salir',style: TextStyle(fontSize:20,
+                color: Colors.red,fontFamily: 'letra',
+                fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+              ),),
+              leading: Icon(Icons.arrow_back_rounded,
                   color: Colors.white,
                   size: 50),
               onTap: (){

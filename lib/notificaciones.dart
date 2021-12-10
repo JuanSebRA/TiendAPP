@@ -19,9 +19,16 @@ class _notificacionesState extends State<notificaciones> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      darkTheme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
       home: Scaffold(
+        backgroundColor: Colors.blue,
         appBar: AppBar(
-          title: Text("mensaje"),
+          title: Text("Mensajes",style: TextStyle(fontSize:30,
+            color: Colors.black,fontFamily: 'letra',
+            fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+          ),)
         ),
       ),
     );
@@ -33,11 +40,17 @@ class home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
-        title: Text("mensaje"),
+        title: Center(
+          child: Text("Mensajes",style: TextStyle(fontSize:30,
+            color: Colors.black,fontFamily: 'letra',
+            fontWeight: FontWeight.bold,fontStyle: FontStyle.normal,
+          ),),
+        ),
       ),
       body: Center(
-        child: Text("new mensaje"),
+        child: Text("No tiene mensajes",style: TextStyle(fontSize: 20,color: Colors.white),),
       ),
     );
   }
@@ -49,10 +62,10 @@ class mensaje extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("mensaje"),
+        title: Text("Mensaje:"),
       ),
       body: Center(
-        child: Text("principal"),
+        child: Text("Cuerpo"),
       ),
     );
   }

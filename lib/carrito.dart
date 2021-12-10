@@ -30,8 +30,9 @@ class _listState extends State<list> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("Su compra"),
+        title: Center(child: Text("Su compra")),
       ),
       body: Column(
         children: [
@@ -46,11 +47,10 @@ class _listState extends State<list> {
                     movementDuration: Duration(milliseconds: 100),
                     key: Key(item),
                     child: Container(
-                      color: Colors.red,
+                      color: Colors.blue,
                       margin: EdgeInsets.all(5),
                       child: ListTile(
-                        title: Text(widget.lista[i][0]+" "+widget.lista[i][1]),
-                        //subtitle: Text(widget.lista[i][1]),
+                        title: Center(child: Text(widget.lista[i][0]+" "+widget.lista[i][1]),),
                       ),
                     )
                 );
@@ -59,29 +59,29 @@ class _listState extends State<list> {
           ),
           Container(
               padding: EdgeInsets.all(10),
-              color: Colors.redAccent,
+              color: Colors.black,
               alignment: Alignment.center,
               child: Column(
                 children: [
                   Builder(
                       builder:(context){
                         return ElevatedButton.icon(
-                          label: Text("costo"),
+                          label: Text("Costo de su compra"),
                           icon: Icon(Icons.add,
-                            size: 30,color: Colors.black,
+                            color: Colors.white,
                           ),
                           onPressed:(){
                             total=0;
                             var t;
                             for(int i=0;i<widget.lista.length;i++){
                               t=int.parse(widget.lista[i][1]);
-                              total=t*total;
+                              total=t+total;
                               print(total);
 
-                              Fluttertoast.showToast(msg: "su total es"+total.toString(),
+                              Fluttertoast.showToast(msg: "su total es"+" "+total.toString(),
                                   fontSize: 20,
                                   backgroundColor: Colors.red,
-                                  textColor: Colors.black,
+                                  textColor: Colors.white,
                                   toastLength: Toast.LENGTH_SHORT,
                                   gravity: ToastGravity.CENTER
                               );
@@ -103,13 +103,13 @@ class _listState extends State<list> {
                         var t;
                         for(int i=0;i<widget.lista.length;i++){
                           t=int.parse(widget.lista[i][1]);
-                          total=t*total;
+                          total=t+total;
                           print(total);
 
-                          Fluttertoast.showToast(msg: "Su total es"+total.toString(),
+                          Fluttertoast.showToast(msg: "Su total es"+" "+total.toString(),
                               fontSize: 20,
                               backgroundColor: Colors.red,
-                              textColor: Colors.black,
+                              textColor: Colors.white,
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.CENTER
                           );
@@ -119,8 +119,8 @@ class _listState extends State<list> {
                           newLis.add(widget.lista[i][0]);
                         }
                         datven.doc().set({
-                          "producto":newLis,
-                          "valor": total
+                          "producto":newLis.toString(),
+                          "valor": total.toString()
                         });
                       },
                     ),
